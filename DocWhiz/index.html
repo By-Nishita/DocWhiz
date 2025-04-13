@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocWhiz – AI Documentation Explainer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-okaidia.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-robot"></i>
+                <h1>DocWhiz</h1>
+            </div>
+            <p class="tagline">AI-powered documentation explainer with examples</p>
+        </header>
+        
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" id="termInput" placeholder="Try 'closure', 'REST API', or 'async/await'...">
+                <button id="explainBtn"><i class="fas fa-search"></i> Explain</button>
+            </div>
+            <div class="examples">
+                <span>Quick examples:</span>
+                <button class="example-btn" data-term="map function">map()</button>
+                <button class="example-btn" data-term="promises">Promises</button>
+                <button class="example-btn" data-term="recursion">Recursion</button>
+            </div>
+        </div>
+        
+        <div class="loading hidden" id="loading">
+            <div class="spinner"></div>
+            <p>Generating AI-powered explanation...</p>
+        </div>
+        
+        <div class="result-container">
+            <div class="result-toolbar">
+                <button id="copyBtn"><i class="far fa-copy"></i> Copy</button>
+                <button id="saveBtn"><i class="far fa-bookmark"></i> Save</button>
+                <button id="feedbackBtn"><i class="far fa-smile"></i> Feedback</button>
+            </div>
+            <div class="result" id="result">
+                <div class="placeholder">
+                    <i class="fas fa-lightbulb"></i>
+                    <p>Enter a programming concept to get an AI-powered explanation with examples</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="history hidden" id="history">
+            <h3><i class="fas fa-history"></i> Recent Searches</h3>
+            <ul id="historyList"></ul>
+        </div>
+    </div>
+
+    <!-- Feedback Modal -->
+    <div class="modal" id="feedbackModal">
+        <div class="modal-content">
+            <button class="close-btn">&times;</button>
+            <h3><i class="fas fa-comment-alt"></i> Feedback</h3>
+            <p>How can we improve this explanation?</p>
+            <textarea id="feedbackText" placeholder="Your suggestions..."></textarea>
+            <div class="modal-actions">
+                <button id="cancelFeedback">Cancel</button>
+                <button id="submitFeedback">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
